@@ -1,1 +1,480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>広島・廿日市・安芸郡府中のニューボーンフォト | noa photo</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBrown: '#7F6457', 
+            brandPink: '#D8B1B1',  
+            brandBeige: '#F9F7F2',
+          },
+          fontFamily: {
+            serif: ['"Noto Serif JP"', 'serif'],
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
+  <style>
+    body {
+      background-color: #F9F7F2;
+      color: #333333;
+      font-family: "Noto Serif JP", serif;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    /* アコーディオンアニメーション */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 1000px;
+      opacity: 1;
+    }
+    .accordion-item.active .icon {
+      transform: rotate(45deg);
+    }
+
+    /* ヒーロー画像デザイン */
+    .hero-image-container {
+      border-bottom-right-radius: 120px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(127, 100, 87, 0.08);
+    }
+
+    /* スクロール時のフェードイン */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bg-decoration {
+      filter: blur(80px);
+      z-index: -1;
+      position: fixed;
+    }
+
+    .highlight-text {
+      font-weight: 600;
+      color: #7F6457;
+      display: inline-block;
+      position: relative;
+    }
+    .highlight-text::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(216, 177, 177, 0.3);
+      z-index: -1;
+    }
+
+    .plan-card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(216, 177, 177, 0.2);
+    }
+  </style>
+</head>
+<body class="leading-relaxed tracking-widest">
+
+  <div class="top-0 right-0 w-64 h-64 bg-brandPink/10 rounded-full bg-decoration"></div>
+  <div class="bottom-0 left-0 w-96 h-96 bg-brandBrown/5 rounded-full bg-decoration"></div>
+
+  <div class="max-w-[550px] mx-auto min-h-screen relative flex flex-col pb-48">
+
+    <!-- 1. ヒーローセクション -->
+    <header class="fade-up">
+      <div class="hero-image-container w-full aspect-[16/11] bg-white flex items-center justify-center mb-16">
+        <span class="text-gray-300 text-xs px-10 text-center font-sans"></span>
+      </div>
+
+      <div class="px-8 text-center">
+        <p class="text-brandPink text-sm md:text-base font-medium tracking-[0.4em] mb-8 font-serif">
+          広島ニューボーンフォト
+        </p>
+        
+        <h1 class="text-3xl md:text-4xl leading-[1.8] font-medium text-brandBrown tracking-[0.15em] mb-10">
+          生まれてきてくれて<br>
+          <span class="text-brandPink text-4xl md:text-5xl inline-block my-2">ありがとう</span>を<br>
+          写真に残しませんか？
+        </h1>
+
+        <div class="space-y-3 mb-12">
+          <p class="text-[13px] md:text-base text-brandBrown/80 leading-loose">
+            今しかない、ふんわりやさしい瞬間。<br>
+            赤ちゃんとご家族のはじまりの日々を<br class="md:hidden"> あたたかく残します。
+          </p>
+        </div>
+
+        <a href="#flow" class="inline-block bg-brandBrown text-white px-12 py-5 rounded-full text-sm tracking-[0.2em] shadow-xl shadow-brandBrown/20 active:scale-95 transition-all">
+          撮影について詳しく見る
+        </a>
+      </div>
+    </header>
+
+    <!-- 2. はじめまして -->
+    <section class="mt-40 px-8 fade-up text-center">
+      <h2 class="text-xl md:text-2xl text-brandPink mb-12 tracking-[0.3em] font-medium italic font-serif">はじめまして</h2>
+      <div class="text-[14px] md:text-base text-brandBrown leading-[2.6] space-y-10">
+        <p>
+          着付けもできる3児のママ<br>
+          カメラマンのakemiです。
+        </p>
+        <p>
+          このページをご覧いただき、ありがとうございます。
+        </p>
+        <p>
+          赤ちゃんから大人まで「今しかない瞬間」を<br>
+          やさしく、あたたかく残すことを大切にしています。
+        </p>
+        <p>
+          自然な光の中で、その人らしい表情、ご家族の空気感。
+        </p>
+        <p>
+          未来で見返したときに、あのときの気持ちまで思い出せるような<br>
+          そんな写真をお届けしています。
+        </p>
+        <p>
+          はじめての撮影で不安な方も、人見知りのお子さまも<br>
+          安心して過ごせる空間づくりを大切にしています。
+        </p>
+        <p>どうぞお気軽にご相談くださいね。</p>
+      </div>
+    </section>
+
+    <!-- 3. おすすめポイント -->
+    <section class="mt-40 px-6 fade-up">
+      <div class="text-center mb-16">
+        <h2 class="text-xl text-brandBrown font-medium tracking-[0.3em] font-serif">おすすめポイント</h2>
+        <div class="w-8 border-t border-brandPink mx-auto mt-4"></div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="accordion-item plan-card rounded-2xl shadow-sm">
+          <button class="w-full flex justify-between items-center px-6 py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[14px] md:text-base font-medium text-brandBrown flex items-center gap-3">
+              <span class="text-brandPink text-[10px] font-bold italic">01.</span>
+              安心の専門知識と実績
+            </span>
+            <span class="icon text-brandPink transition-transform duration-500 font-light text-xl">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-8 text-[13px] md:text-[14px] text-brandBrown/80 leading-[2.2] font-sans border-t border-brandPink/10 pt-4">
+              ニューボーンフォト研修済み、撮影実績延べ800件以上。元産婦人科看護師として新生児ケアの経験があり、安心安全な撮影を行います。
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item plan-card rounded-2xl shadow-sm">
+          <button class="w-full flex justify-between items-center px-6 py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[14px] md:text-base font-medium text-brandBrown flex items-center gap-3">
+              <span class="text-brandPink text-[10px] font-bold italic">02.</span>
+              ご自宅へ出張撮影
+            </span>
+            <span class="icon text-brandPink transition-transform duration-500 font-light text-xl">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-8 text-[13px] md:text-[14px] text-brandBrown/80 leading-[2.2] font-sans border-t border-brandPink/10 pt-4">
+              産後の外出が難しい時期でも大丈夫。家が散らかっていても、3畳ほどの撮影スペースをご用意いただければOKです。（※東区のおうちスタジオでの撮影も可能です）
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item plan-card rounded-2xl shadow-sm">
+          <button class="w-full flex justify-between items-center px-6 py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[14px] md:text-base font-medium text-brandBrown flex items-center gap-3">
+              <span class="text-brandPink text-[10px] font-bold italic">03.</span>
+              ママと赤ちゃんのペース最優先
+            </span>
+            <span class="icon text-brandPink transition-transform duration-500 font-light text-xl">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-8 text-[13px] md:text-[14px] text-brandBrown/80 leading-[2.2] font-sans border-t border-brandPink/10 pt-4">
+              カウンセリング経験を活かし、体調やご機嫌を最優先。3児のママ目線で、頑張るパパママ、兄弟姉妹も主役として寄り添います。きちんとした記念も、ふとした笑顔も残します。
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item plan-card rounded-2xl shadow-sm">
+          <button class="w-full flex justify-between items-center px-6 py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-[14px] md:text-base font-medium text-brandBrown flex items-center gap-3">
+              <span class="text-brandPink text-[10px] font-bold italic">04.</span>
+              家族の専属カメラマンとして
+            </span>
+            <span class="icon text-brandPink transition-transform duration-500 font-light text-xl">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="px-6 pb-8 text-[13px] md:text-[14px] text-brandBrown/80 leading-[2.2] font-sans border-t border-brandPink/10 pt-4">
+              ニューボーンだけでなく、その後の成長写真（お宮参り、バースデーなど）も承ります。「お願いしてよかった」と思っていただけるやさしい時間をお届けします。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 撮影プラン -->
+    <section class="mt-40 px-8 fade-up text-center">
+      <h2 class="text-xl text-brandBrown font-medium tracking-[0.3em] font-serif mb-12 uppercase tracking-[0.2em]">Plan</h2>
+      
+      <div class="space-y-8 text-left font-sans">
+        <!-- はじまりの1年プラン -->
+        <div class="p-8 bg-white border-2 border-brandPink/40 rounded-3xl shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-brandPink text-white text-[10px] px-6 py-2 tracking-widest uppercase font-bold">Recommended</div>
+          <h3 class="text-brandBrown font-bold text-lg mb-2">はじまりの1年プラン</h3>
+          <p class="text-[11px] text-brandPink font-bold mb-4 tracking-wider uppercase">計4回の撮影で成長を追う特別なプラン</p>
+          
+          <p class="text-3xl text-brandBrown font-bold mb-6 font-serif tracking-tight">110,000円 <span class="text-xs font-normal text-brandBrown/60 tracking-normal">(税込)</span></p>
+          
+          <div class="space-y-6 border-t border-brandPink/10 pt-6">
+            <div>
+              <p class="text-[13px] font-bold text-brandBrown mb-2 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-brandPink rounded-full"></span> 撮影内容
+              </p>
+              <p class="text-[12px] text-brandBrown/80 leading-relaxed ml-3">
+                ニューボーンフォト ＋ お宮参り(100日)<br>
+                ＋ [マタニティ/ハーフBD/BD] から2回選択
+              </p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-brandBeige p-3 rounded-xl border border-brandPink/10">
+                <p class="text-[10px] font-bold text-brandPink mb-1 uppercase">Gift</p>
+                <p class="text-[11px] text-brandBrown leading-snug">見開きアルバム1冊<br>(22,000円相当)</p>
+              </div>
+              <div class="bg-brandBeige p-3 rounded-xl border border-brandPink/10">
+                <p class="text-[10px] font-bold text-brandPink mb-1 uppercase">Free</p>
+                <p class="text-[11px] text-brandBrown leading-snug">お宮参り撮影時<br>産着レンタル無料</p>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-brandBrown/60 italic ml-3">※毎回 50枚程度のデータを納品いたします</p>
+          </div>
+        </div>
+
+        <!-- スタンダードプラン -->
+        <div class="p-8 plan-card rounded-2xl shadow-sm border border-brandPink/10">
+          <h3 class="text-brandBrown font-bold text-base mb-1">スタンダードプラン</h3>
+          <p class="text-xl text-brandBrown/90 font-bold mb-4 font-serif">38,500円</p>
+          <ul class="text-[12px] text-brandBrown/70 space-y-1.5 border-t border-brandPink/5 pt-4">
+            <li class="flex items-center gap-2"><span class="text-brandPink">・</span>おくるみ 2パターン</li>
+            <li class="flex items-center gap-2"><span class="text-brandPink">・</span>家族写真、兄弟姉妹OK</li>
+            <li class="flex items-center gap-2"><span class="text-brandPink">・</span>パーツフォト</li>
+            <li class="flex items-center gap-2 font-medium"><span class="text-brandPink">・</span>データ 50枚納品</li>
+          </ul>
+        </div>
+
+        <!-- ミニプラン -->
+        <div class="p-8 plan-card rounded-2xl shadow-sm border border-brandPink/10 opacity-90">
+          <h3 class="text-brandBrown font-bold text-base mb-1">ミニプラン</h3>
+          <p class="text-xl text-brandBrown/90 font-bold mb-4 font-serif">27,500円</p>
+          <ul class="text-[12px] text-brandBrown/70 space-y-1.5 border-t border-brandPink/5 pt-4">
+            <li class="flex items-center gap-2"><span class="text-brandPink">・</span>おくるみ 1パターン</li>
+            <li class="flex items-center gap-2"><span class="text-brandPink">・</span>パーツフォト</li>
+            <li class="flex items-center gap-2"><span class="text-brandPink">・</span>家族写真</li>
+            <li class="flex items-center gap-2 font-medium"><span class="text-brandPink">・</span>データ 20枚納品</li>
+          </ul>
+        </div>
+
+        <!-- オプション・案内 -->
+        <div class="pt-6 space-y-6 font-sans">
+          <div class="bg-brandPink/5 p-6 rounded-2xl border border-brandPink/10">
+            <p class="text-[12px] font-bold text-brandBrown mb-3 flex items-center gap-2">
+              <span class="text-brandPink">【オプション】</span>
+            </p>
+            <p class="text-[12px] text-brandBrown/80 leading-loose">
+              フォトパネル、各種アルバムのご用意もございます。
+            </p>
+          </div>
+
+          <div class="px-2">
+            <p class="text-[12px] font-bold text-brandBrown mb-3">【ご案内】</p>
+            <ul class="text-[12px] text-brandBrown/80 space-y-2 leading-loose">
+              <li class="flex gap-2"><span>・</span><span>土日祝日の撮影は <span class="font-bold text-brandBrown">+5,500円</span> となります。</span></li>
+              <li class="flex gap-2"><span>・</span><span>出張無料エリアがございます。（詳しくはお問合せください）</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. プロフィール -->
+    <section class="mt-40 px-8 fade-up text-center">
+      <h2 class="text-xl text-brandPink font-medium tracking-[0.3em] mb-16 uppercase font-sans">Profile</h2>
+      <div class="text-[14px] md:text-base text-brandBrown leading-[2.8] space-y-12 text-left">
+        <p>
+          山口県宇部市出身。島根、東京、茨城、福岡、山口、広島と引越し経験があります。<br>
+          医療の現場で、産婦人科・皮膚科・整形外科など約10年経験。
+        </p>
+        <p>
+          自身の体調不良を経験したからこそ、予防医学の大切さを実感しました。<br>
+          その後学びを重ね、アロマ・エステ・カウンセラーとして約10年。<br>
+          これまで多くの方の心と身体に、寄り添ってきました。
+        </p>
+        <p>
+          39歳、末っ子の妊娠中に<br>
+          <span class="highlight-text text-lg">「この可愛い瞬間を残したい」</span><br>
+          という想いからカメラの世界へ。<br>
+          本格的に学び、カメラマンとしての道を歩み始めました。
+        </p>
+        <p>
+          呉服屋フォトスタジオでの振袖撮影や出張撮影、個人依頼などを重ね、<br>
+          <span class="highlight-text text-brandPink">これまでに800件以上実績</span>があります。
+        </p>
+        <p>
+          医療・ケア・美容・カウンセリング、大母としての経験。<br>
+          そのすべてを活かしながら、<br>
+          <span class="highlight-text">「安心できる時間」と「未来に残る宝物」</span><br>
+          をお届けしています。
+        </p>
+        
+        <div class="pt-10 border-t border-brandPink/10 italic text-[13px] md:text-sm leading-relaxed text-center">
+          写真は未来の宝物になるものだと思っています。<br>
+          忙しい毎日の中で忘れてしまいそうな小さなしあわせを、<br>
+          カタチに残すお手伝いができたら嬉しいです。
+        </div>
+
+        <!-- Instagram リンク -->
+        <div class="pt-12 flex justify-center">
+          <a href="https://www.instagram.com/noa.newborn" target="_blank" class="flex items-center gap-3 text-brandBrown hover:text-brandPink transition-colors group">
+            <div class="w-10 h-10 rounded-full border border-brandBrown flex items-center justify-center group-hover:border-brandPink">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <span class="text-xs tracking-[0.2em] font-sans font-medium uppercase">Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FLOW -->
+    <section id="flow" class="mt-40 px-8 fade-up">
+      <div class="text-center mb-16">
+        <h2 class="text-xl text-brandBrown font-medium tracking-[0.3em] uppercase font-serif">FLOW</h2>
+        <p class="text-[11px] text-brandBrown/50 mt-2 font-sans tracking-widest">ご予約から撮影まで</p>
+        <div class="w-8 border-t border-brandPink mx-auto mt-4"></div>
+      </div>
+      
+      <div class="space-y-1 border-t border-brandPink/10">
+        <div class="accordion-item border-b border-brandPink/10">
+          <button class="w-full flex justify-between items-center py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-sm font-medium text-brandBrown">STEP 1. 公式LINEで無料相談</span>
+            <span class="icon text-brandPink">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="pb-6 text-[13px] text-brandBrown/70 font-sans leading-relaxed">まずはLINEからお気軽にご連絡ください。不安なことなど何でもご相談ください。</p>
+          </div>
+        </div>
+        <div class="accordion-item border-b border-brandPink/10">
+          <button class="w-full flex justify-between items-center py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-sm font-medium text-brandBrown">STEP 2. 出産予定日・エリア確認</span>
+            <span class="icon text-brandPink">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="pb-6 text-[13px] text-brandBrown/70 font-sans leading-relaxed">撮影の可否を確認するため、予定日と撮影場所のエリアをお伺いします。</p>
+          </div>
+        </div>
+        <div class="accordion-item border-b border-brandPink/10">
+          <button class="w-full flex justify-between items-center py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-sm font-medium text-brandBrown">STEP 3. 仮予約（安定期からOK）</span>
+            <span class="icon text-brandPink">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="pb-6 text-[13px] text-brandBrown/70 font-sans leading-relaxed">予定日前後で枠を確保します。妊娠中の安定期からの仮予約をおすすめしています。</p>
+          </div>
+        </div>
+        <div class="accordion-item border-b border-brandPink/10">
+          <button class="w-full flex justify-between items-center py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-sm font-medium text-brandBrown">STEP 4. ご出産後に日程調整</span>
+            <span class="icon text-brandPink">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="pb-6 text-[13px] text-brandBrown/70 font-sans leading-relaxed">無事ご出産されましたらご連絡ください。最終的な撮影日を決定します。</p>
+          </div>
+        </div>
+        <div class="accordion-item border-b border-brandPink/10">
+          <button class="w-full flex justify-between items-center py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-sm font-medium text-brandBrown">STEP 5. 撮影当日</span>
+            <span class="icon text-brandPink">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="pb-6 text-[13px] text-brandBrown/70 font-sans leading-relaxed">ご自宅またはおうちスタジオにて、赤ちゃんのペースに合わせて丁寧に撮影します。</p>
+          </div>
+        </div>
+        <div class="accordion-item border-b border-brandPink/10">
+          <button class="w-full flex justify-between items-center py-6 text-left outline-none" onclick="toggleAccordion(this)">
+            <span class="text-sm font-medium text-brandBrown">STEP 6. データ納品</span>
+            <span class="icon text-brandPink">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="pb-6 text-[13px] text-brandBrown/70 font-sans leading-relaxed">撮影後、通常3日以内（繁忙期は1週間以内）にデータを納品いたします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. フッター -->
+    <footer class="mt-40 mb-10 text-center fade-up px-8">
+      <div class="w-12 border-t border-brandPink/30 mx-auto mb-8"></div>
+      <p class="text-[10px] text-brandBrown/50 tracking-[0.4em] uppercase font-sans">
+        noa photo Hiroshima<br>
+        広島・安芸郡・出張撮影
+      </p>
+      <p class="mt-4 text-[9px] text-brandBrown/30 font-sans">© 2026 noa photo</p>
+    </footer>
+
+    <!-- LINEボタン -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-[440px] px-8 z-50">
+      <a href="https://lin.ee/Vu1mOFJ" target="_blank" class="flex items-center justify-center gap-3 bg-brandPink text-white w-full py-5 rounded-full shadow-2xl active:scale-95 transition-all">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 5.58 2 10c0 2.22 1.1 4.22 2.91 5.61-.17.61-.62 2.21-.71 2.52-.1.35.05.34.1.34.17 0 2.45-.17 3.42-.82.72.2 1.48.3 2.28.3 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/>
+        </svg>
+        <span class="text-[14px] tracking-[0.2em] font-medium">LINEで予約・相談</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleAccordion(element) {
+      const item = element.closest('.accordion-item');
+      item.classList.toggle('active');
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
